@@ -10,18 +10,48 @@ class astroCalc extends Page {
         return $('#planets');
     }
 
-    get moon () {
-        return $('/html/body/form[1]/div/div[2]/select/option[7]');
-    }// finish weight selector and method
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async moonWeight (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
+    get moonGet () {
+        return $('//select/option[7]');
+    }
+
+    get spengoGet () {
+        return $('//select/option[12]');
+    }
+
+    get inputWeight () {
+        return $('#user-weight')
+    }
+
+    get btnSubmit () {
+        return $('#calculate-button')
+    }
+
+    get outPut () {
+        return $('#output')
+    }
+
+    get newPlanet () {
+        return $('#planetName')
+    }
+
+    get weightMulti () {
+        return $('#weightMultiplier')
+    }
+
+    get addBtn () {
+        return $('#add-button')
+    }
+    
+    // async moonClick () {
+    //     await this.selectElement.click()
+    // }
+
+    async moonWeight (weight) {
+        await this.moonGet;
+        await this.inputWeight.setValue(weight);
         await this.btnSubmit.click();
     }
+
     open () {
         return super.open('');
     }
